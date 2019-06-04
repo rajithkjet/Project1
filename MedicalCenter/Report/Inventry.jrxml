@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Inventry" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f78ce383-cfdd-4213-8357-13f9f1647d0b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     inventry.`ItemID` AS inventry_ItemID,
+     inventry.`ItemName` AS inventry_ItemName,
+     inventry.`IStatus` AS inventry_IStatus,
+     inventry.`DateRecived` AS inventry_DateRecived,
+     inventry.`Description` AS inventry_Description,
+     inventry.`UserName` AS inventry_UserName
+FROM
+     `inventry` inventry]]>
+	</queryString>
+	<field name="inventry_ItemID" class="java.lang.String"/>
+	<field name="inventry_ItemName" class="java.lang.String"/>
+	<field name="inventry_IStatus" class="java.lang.String"/>
+	<field name="inventry_DateRecived" class="java.sql.Date"/>
+	<field name="inventry_Description" class="java.lang.String"/>
+	<field name="inventry_UserName" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="91" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="-19" y="-23" width="596" height="95" backcolor="#CCCCCC" uuid="505be170-16cd-4606-807c-762d19fc0ec7"/>
+				<graphicElement>
+					<pen lineWidth="0.0" lineStyle="Double"/>
+				</graphicElement>
+			</rectangle>
+			<image>
+				<reportElement x="475" y="-11" width="80" height="67" uuid="c402a94a-a7fd-4c37-b6d1-5d65f07c22ec"/>
+				<imageExpression><![CDATA["C:\\Users\\Lenovo\\Downloads\\head_logo.jpg"]]></imageExpression>
+			</image>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="2" y="41" width="100" height="20" uuid="44173c46-7f6c-4358-9c4d-0872ef42d11c"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Title" x="2" y="8" width="333" height="33" uuid="13953af7-538b-4569-80e4-fd7104d72d5d"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Inventory Records]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="2" y="-14" width="174" height="22" uuid="9e841c4c-6aa3-43f2-a600-53fd189c0024"/>
+				<text><![CDATA[UWU Medical Center]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="c20a6024-7f5d-4ca8-8ae4-d138950a402c"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="92" height="15" uuid="fbcebcab-c442-43c9-915f-07d0d381ca2e"/>
+				<text><![CDATA[ItemID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="92" y="19" width="92" height="15" uuid="d2c30f3f-6ead-4c01-8e69-9a80988768d5"/>
+				<text><![CDATA[Item]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="184" y="19" width="92" height="15" uuid="3ada688c-384f-4ed1-a9f6-3005bc9d7989"/>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="19" width="92" height="15" uuid="b7c9f82d-c7a1-462c-a87a-fd9554a6558c"/>
+				<text><![CDATA[Date Recieved]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="368" y="19" width="92" height="15" uuid="ce60eae9-f3a1-4cee-b7af-b2ebe782db60"/>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="460" y="19" width="92" height="15" uuid="f446bfb5-0ffb-4c66-8f17-240101deb357"/>
+				<text><![CDATA[User]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="38e09a1b-ac64-43fa-bcd9-14755454f39d"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="92" height="15" uuid="9936eb4e-6efa-40b1-8cc3-838d96e7b663"/>
+				<textFieldExpression><![CDATA[$F{inventry_ItemID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="92" y="0" width="92" height="15" uuid="a667cf06-cb4b-4e66-9e75-f9e3f78e1dca"/>
+				<textFieldExpression><![CDATA[$F{inventry_ItemName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="184" y="0" width="92" height="15" uuid="a9f03b66-b6e1-46b2-b26b-6fce564150f3"/>
+				<textFieldExpression><![CDATA[$F{inventry_IStatus}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="276" y="0" width="92" height="15" uuid="724aaf70-1de7-4f84-833b-ee9a58195827"/>
+				<textFieldExpression><![CDATA[$F{inventry_DateRecived}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="368" y="0" width="92" height="15" uuid="07575a44-4d7b-4390-b8f6-82dea8b4ebd3"/>
+				<textFieldExpression><![CDATA[$F{inventry_Description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="460" y="0" width="92" height="15" uuid="2b2730a6-d845-4b32-af11-f4676c32eae3"/>
+				<textFieldExpression><![CDATA[$F{inventry_UserName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="f822b80f-c34c-4f0a-87ec-1c661a90409e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="73ce5138-d6bd-45b3-887a-129cd9bee312"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="fa936924-e49c-4397-a5f5-a92390d369bb"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

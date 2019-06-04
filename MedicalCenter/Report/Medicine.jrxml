@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Medicine" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d77aa9fb-4fd3-4b2f-b6d8-d12c655467db">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     medicine.`MedicineID` AS medicine_MedicineID,
+     medicine.`MName` AS medicine_MName,
+     medicine.`Brand` AS medicine_Brand,
+     medicine.`MQuantity` AS medicine_MQuantity,
+     medicine.`UnitPrice` AS medicine_UnitPrice,
+     medicine.`Category` AS medicine_Category,
+     medicine.`MfdDate` AS medicine_MfdDate,
+     medicine.`ExpDate` AS medicine_ExpDate,
+     medicine.`UserName` AS medicine_UserName
+FROM
+     `medicine` medicine]]>
+	</queryString>
+	<field name="medicine_MName" class="java.lang.String"/>
+	<field name="medicine_Brand" class="java.lang.String"/>
+	<field name="medicine_MQuantity" class="java.lang.Integer"/>
+	<field name="medicine_UnitPrice" class="java.lang.Double"/>
+	<field name="medicine_Category" class="java.lang.String"/>
+	<field name="medicine_MfdDate" class="java.sql.Date"/>
+	<field name="medicine_ExpDate" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="73" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="-21" y="-22" width="596" height="95" backcolor="#CCCCCC" uuid="9d99b76b-fa8b-4cea-9ae6-4767bdac59ec"/>
+				<graphicElement>
+					<pen lineWidth="0.0" lineStyle="Double"/>
+				</graphicElement>
+			</rectangle>
+			<image>
+				<reportElement x="472" y="-8" width="80" height="67" uuid="b685a743-4a30-42f2-b442-903b3121263b"/>
+				<imageExpression><![CDATA["C:\\Users\\Lenovo\\Downloads\\head_logo.jpg"]]></imageExpression>
+			</image>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="-1" y="44" width="100" height="20" uuid="1224e225-a344-4a05-bcf4-73252c66d091"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Title" x="-1" y="11" width="333" height="33" uuid="de06b5f3-36fa-41f4-a9dd-c3f809c7f63b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Drug Availability Report]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="-1" y="-11" width="174" height="22" uuid="9b650e85-436e-48a9-85ae-7933ba745e0b"/>
+				<text><![CDATA[UWU Medical Center]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="96afc208-aa15-4e13-9d2c-15027da79472"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="79" height="15" uuid="3e77fc0a-25ac-433b-acab-a0c8d9df2bd6"/>
+				<text><![CDATA[Drug]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="79" y="19" width="79" height="15" uuid="ff3974ba-297e-42ac-835c-68157968e823"/>
+				<text><![CDATA[Brand]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="158" y="19" width="79" height="15" uuid="5e2eef0b-3c40-4004-8bb7-899424015d0d"/>
+				<text><![CDATA[QUantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="237" y="19" width="79" height="15" uuid="fa87f2d6-92a0-4e45-809c-831f75153432"/>
+				<text><![CDATA[UnitPrice]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="316" y="19" width="79" height="15" uuid="b0cd7381-9fc8-42b6-9c5d-fc1a763bfb35"/>
+				<text><![CDATA[Category]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="380" y="19" width="79" height="15" uuid="9c3acaad-1c99-4c6d-a967-eb7e85cb790c"/>
+				<text><![CDATA[Manufactured Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="474" y="19" width="79" height="15" uuid="f209bcb7-48c2-44b2-80fd-be7494a13ee6"/>
+				<text><![CDATA[Expire Date]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="0178df7c-ed03-4088-86a9-a3de3c0f4adb"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="79" height="15" uuid="4c7cd19d-dd09-4964-a57c-8c360dafcddf"/>
+				<textFieldExpression><![CDATA[$F{medicine_MName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="79" y="0" width="79" height="15" uuid="e6744274-1698-48aa-afb5-4922a05d6a6d"/>
+				<textFieldExpression><![CDATA[$F{medicine_Brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="158" y="0" width="79" height="15" uuid="babc5c61-ee39-439f-a049-6751d2e983f3"/>
+				<textFieldExpression><![CDATA[$F{medicine_MQuantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="237" y="0" width="79" height="15" uuid="7d0b46e8-2610-40cf-8738-e47ae5195835"/>
+				<textFieldExpression><![CDATA[$F{medicine_UnitPrice}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="316" y="0" width="79" height="15" uuid="f49d4b57-2205-4f4d-9b9f-ec4b0e2df42e"/>
+				<textFieldExpression><![CDATA[$F{medicine_Category}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="395" y="0" width="79" height="15" uuid="09c563c9-6afd-4ae4-9880-6ac17743c7a8"/>
+				<textFieldExpression><![CDATA[$F{medicine_MfdDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="474" y="0" width="79" height="15" uuid="2d8e289a-8a34-40a5-b683-bf9dbfa4d939"/>
+				<textFieldExpression><![CDATA[$F{medicine_ExpDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="bcd3ffbf-46fa-46b3-bba6-9073c4dc5f74"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="9ea388d7-2363-422b-a7ae-287600b0465e"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="af1dde0f-8e5e-4425-881f-28a1f702696e"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

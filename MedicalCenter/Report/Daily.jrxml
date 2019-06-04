@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Daily" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="94ce73d8-e167-494b-8860-df0215f19884">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     report_daily.`MedicineID` AS report_daily_MedicineID,
+     report_daily.`MName` AS report_daily_MName,
+     report_daily.`Brand` AS report_daily_Brand,
+     report_daily.`Category` AS report_daily_Category,
+     report_daily.`Qty` AS report_daily_Qty,
+     report_daily.`Date` AS report_daily_Date
+FROM
+     `report_daily` report_daily]]>
+	</queryString>
+	<field name="report_daily_MName" class="java.lang.String"/>
+	<field name="report_daily_Brand" class="java.lang.String"/>
+	<field name="report_daily_Category" class="java.lang.String"/>
+	<field name="report_daily_Qty" class="java.lang.Integer"/>
+	<field name="report_daily_Date" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="75" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="-20" y="-20" width="596" height="95" backcolor="#CCCCCC" uuid="7dd8a972-408d-432c-a03e-6cef59ddddcc"/>
+				<graphicElement>
+					<pen lineWidth="0.0" lineStyle="Double"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement style="Title" x="0" y="22" width="333" height="33" uuid="bae8c871-80d5-4324-a69d-9995ee089dd0"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Daily Drug Prescription]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="0" y="0" width="174" height="22" uuid="644b3825-299c-4e94-a0ee-7bbaedb9420b"/>
+				<text><![CDATA[UWU Medical Center]]></text>
+			</staticText>
+			<image>
+				<reportElement x="473" y="3" width="80" height="67" uuid="f0dc785f-de88-41de-9387-355dacb740f9"/>
+				<imageExpression><![CDATA["C:\\Users\\Lenovo\\Downloads\\head_logo.jpg"]]></imageExpression>
+			</image>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="0" y="55" width="100" height="20" uuid="21148b68-fabb-4698-8e8a-ec53e75b91c3"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="5de01d58-1cb4-4ef8-ae75-00f8c397b01a"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="111" height="15" uuid="a10349b0-1dce-4c2d-a354-3bdeb4195f96"/>
+				<text><![CDATA[Drug]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="111" y="19" width="111" height="15" uuid="60a7fb55-0470-422d-870a-ab75ab0ad1da"/>
+				<text><![CDATA[Brand]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="222" y="19" width="111" height="15" uuid="04c55cd9-345a-4b1f-9c42-7d5f0f680dbe"/>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="333" y="19" width="111" height="15" uuid="29da69e2-10a2-4183-8059-5228d40da3fc"/>
+				<text><![CDATA[Quantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="444" y="19" width="111" height="15" uuid="a4c99cce-eb66-4602-8bc8-f8a367003d63"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="99ac61b9-d059-4d60-8dec-17ca9f49e64f"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="111" height="15" uuid="fa64b75d-6852-41bd-948a-0202fc51b1b3"/>
+				<textFieldExpression><![CDATA[$F{report_daily_MName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="111" y="0" width="111" height="15" uuid="538ac8a4-138a-4e07-b7ef-10ec6b19a7f3"/>
+				<textFieldExpression><![CDATA[$F{report_daily_Brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="222" y="0" width="111" height="15" uuid="782598ef-70f5-4bd9-9710-e0dfbe1eceb8"/>
+				<textFieldExpression><![CDATA[$F{report_daily_Category}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="333" y="0" width="111" height="15" uuid="d176f4be-6188-4c2a-b055-7a11b810df5f"/>
+				<textFieldExpression><![CDATA[$F{report_daily_Qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="444" y="0" width="111" height="15" uuid="aa18332e-150a-409d-bcc5-2223198453d0"/>
+				<textFieldExpression><![CDATA[$F{report_daily_Date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="e8cf51b3-7045-4f0b-b243-c0eab9818746"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="eaa78fc0-b989-424d-9725-0b9de41d85a5"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="bfd9f3fb-2c39-4867-920b-77a4e5294d6d"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

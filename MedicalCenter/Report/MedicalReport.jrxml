@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MedicalReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4500a95a-0235-4b73-a43e-2e4e3592125d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="id" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     medirep.`id` AS medirep_id,
+     medirep.`Registration No` AS medirep_Registration_No,
+     medirep.`Name` AS medirep_Name,
+     medirep.`Illness` AS medirep_Illness,
+     medirep.`Recomendation` AS medirep_Recomendation,
+     medirep.`Date` AS medirep_Date
+FROM
+     `medirep` medirep
+where medirep.`id`=$P{id}]]>
+	</queryString>
+	<field name="medirep_id" class="java.lang.Integer"/>
+	<field name="medirep_Registration_No" class="java.lang.String"/>
+	<field name="medirep_Name" class="java.lang.String"/>
+	<field name="medirep_Illness" class="java.lang.String"/>
+	<field name="medirep_Recomendation" class="java.lang.String"/>
+	<field name="medirep_Date" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="95" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="128" y="13" width="263" height="33" uuid="d4f295f2-99c2-44b8-9182-3701a21205bb"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Medical Certificate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="163" y="46" width="174" height="22" uuid="5fb11099-01d3-4029-99c0-6d3fd9228814"/>
+				<text><![CDATA[UWU Medical Center]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="83" width="555" height="5" backcolor="#0033CC" uuid="9d387438-d87f-42a8-b076-b2db06e86c32"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="314" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="f964fc61-f517-4f8c-9179-4a038f47f5fd"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="337" y="19" width="92" height="15" uuid="cdec72ee-e4a6-4a1e-8313-d24efc517d47"/>
+				<text><![CDATA[Medical Report ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="36" y="54" width="92" height="15" uuid="05951186-cb58-47c0-a407-138bd7ea117b"/>
+				<text><![CDATA[Registration No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="36" y="91" width="92" height="15" uuid="e01253a1-58d1-4e09-b13e-5777661bf6bc"/>
+				<text><![CDATA[Student Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="36" y="128" width="92" height="15" uuid="216d08e2-d1a3-4674-abf1-4e9e815b6d5b"/>
+				<text><![CDATA[Illness]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="36" y="168" width="92" height="15" uuid="ee3370ae-6351-4e77-b609-12c7740dce0d"/>
+				<text><![CDATA[Recomendation]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="197" y="168" width="92" height="15" uuid="9511fba9-5819-47bf-a94b-9fcda524699b"/>
+				<textFieldExpression><![CDATA[$F{medirep_Recomendation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="197" y="128" width="92" height="15" uuid="1c349723-cf9a-4c41-8039-e786b6c59cc2"/>
+				<textFieldExpression><![CDATA[$F{medirep_Illness}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="197" y="91" width="92" height="15" uuid="7aa64040-8d1f-4706-8d55-0ad6cb3f0e43"/>
+				<textFieldExpression><![CDATA[$F{medirep_Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="197" y="54" width="92" height="15" uuid="3d373047-a972-4c7a-a660-9fa96d98289f"/>
+				<textFieldExpression><![CDATA[$F{medirep_Registration_No}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="337" y="0" width="92" height="15" uuid="d857138f-a206-40d8-bf7b-b1b38ab56af1"/>
+				<text><![CDATA[Issued Date ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yy">
+				<reportElement style="Column header" x="448" y="0" width="105" height="20" uuid="50ce2346-fdcc-4f01-944d-0422f82c9787"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="391" y="258" width="117" height="15" uuid="0d1c9991-6798-440f-96dc-2a5289b65f4f"/>
+				<text><![CDATA[Approved by:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="448" y="13" width="100" height="20" uuid="616ebee9-bad6-4e55-9d37-d8fdc8214e45"/>
+				<textFieldExpression><![CDATA[$P{id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="36" y="202" width="92" height="15" uuid="5eae547b-c541-4f77-b889-8992ad7f3d68"/>
+				<text><![CDATA[Leave from]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="197" y="202" width="125" height="15" uuid="9fadee9c-1c14-4d15-81ba-70eeb4e85c55"/>
+				<textFieldExpression><![CDATA[$F{medirep_Date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="2ad84c69-2046-48fb-9932-c338b478bd4b"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="fab927da-d1c8-4904-92ce-de9d821bcefa"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="83882a10-4c43-4feb-a8e0-fa9313131d58"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
